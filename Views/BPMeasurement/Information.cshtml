@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Blood Pressure Measurement Information";
+
+    // Define a list of blood pressure categories, systolic, and diastolic values
+    var categories = new Dictionary<string, (string systolic, string diastolic, string color, string color2)>
+    {
+        { "Normal", ("Less than 120", "less than 80", "#A6CE39", "Black") }, // Light green
+        { "Elevated", ("120 - 129", "less than 80", "#FFEC01", "Black") }, // Light blue
+        { "Hypertension Stage 1", ("130 - 139", "80 - 89", "#FFB600", "Black") }, // Light orange
+        { "Hypertension Stage 2", ("140 or higher", "90 or higher", "#BD3901", "white") }, // Light red
+        { "Hypertensive Crisis", ("Higher than 180", "higher than 120", "#990811","white") } // Darker red
+    };
+}
+
+<a asp-action="List" asp-controller="BPMeasurement">Go TO Dashboard</a>
+
+
+<p>Blood Pressure Measurement Information</p>
+
+<table style="width:100%; border-collapse: collapse;" class="text-center">
+    <thead class="py-4">
+        <tr style="background-color:black; color:white;"  >
+            <th class="py-4">BLOOD PRESSURE CATEGORY</th>
+            <th>SYSTOLIC mm HG</th>
+            <th>AND/OR</th>
+            <th>DIASTOLIC mm HG</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in categories)
+        {
+            <tr style="background-color: @category.Value.color; color:@category.Value.color2;">
+                <td class="py-3"><strong>@category.Key</strong></td>
+                <td class="py-3">@category.Value.systolic</td>
+                <td class="py-3">and</td>
+                <td class="py-3">@category.Value.diastolic</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Please consult your doctor if you have concerns about your blood pressure readings.</p>

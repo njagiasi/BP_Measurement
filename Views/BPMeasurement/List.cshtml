@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BPMeasurementApp.Entities.BPMeasurement>
+
+@{
+    ViewData["Title"] = "BP Measurements List";
+}
+
+<h1>BP Measurements</h1>
+
+
+    <a asp-action="Create">Add New BP Measurement</a> | 
+
+
+    <a asp-action="Information">Information on BP Measurement</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reading</th>
+            <th>Category</th>
+            <th>Position</th>
+            <th>Date</th>
+             <!-- New column for category -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bpmData in Model)
+        {
+            // Determine the color based on the category
+            string rowColor;
+            switch (bpmData.Category)
+            {
+                case "Normal":
+                    rowColor = "#A6CE39";
+                    break;
+                case "Elevated":
+                    rowColor = "#FFEC01";
+                    break;
+                case "Hypertension Stage 1":
+                    rowColor = "#FFB600";
+                    break;
+                case "Hypertension Stage 2":
+                    rowColor = "#BD3901";
+                    break;
+                case "Hypertensive Crisis":
+                    rowColor = "#990811";
+                    break;
+                default:
+                    rowColor = "#black";
+                    break;
+            }
+
+            <tr>
+                
+                <td style="color:@rowColor">
+                    <strong>  @bpmData.Systolic / @bpmData.Diastolic </strong>
+                </td>
+                <td style="color:@rowColor"><strong> @bpmData.Category </strong> </td> <!-- New column displaying the category -->
+                
+                <td>@bpmData.Position.Name</td>
+                <td>@bpmData.MeasurementDate.ToString("g")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@bpmData.BPMeasurementId">Edit</a>
+                    <span class="mx-3">|</span>
+                    <a asp-action="Delete" asp-route-id="@bpmData.BPMeasurementId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
