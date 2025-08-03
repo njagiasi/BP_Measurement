@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPMeasurementApp", "BPMeasurementApp\BPMeasurementApp.csproj", "{E6BA8CA7-5063-4913-819B-0FF901776F3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6BA8CA7-5063-4913-819B-0FF901776F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6BA8CA7-5063-4913-819B-0FF901776F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6BA8CA7-5063-4913-819B-0FF901776F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6BA8CA7-5063-4913-819B-0FF901776F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C354E01F-91DE-48E2-8784-45803B98F1FF}
+	EndGlobalSection
+EndGlobal
